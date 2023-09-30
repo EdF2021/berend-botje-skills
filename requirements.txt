@@ -4,9 +4,7 @@ pandas
 streamlit
 streamlit-chat
 openai
-redis
 requests
 tiktoken
 pdf_extractor
 pillow
-
