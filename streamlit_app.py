@@ -6,6 +6,8 @@ import pandas as pd
 import streamlit as st
 import openai
 from PIL import Image
+
+openai.api_key_path = "/.env"
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 image = Image.open('producttoer.jpeg')
@@ -57,5 +59,6 @@ if prompt := st.chat_input("Hoe gaat het?"):
 
 
 
-# openai.api_key = st.secrets["OPENAI_API_KEY"]
+if not openai.api_key:
+        openai.api_key = st.secrets["OPENAI_API_KEY"]
 
