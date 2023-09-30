@@ -1,3 +1,4 @@
+import os
 from collections import namedtuple
 import altair as alt
 import math
@@ -5,6 +6,7 @@ import pandas as pd
 import streamlit as st
 import openai
 from PIL import Image
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 image = Image.open('producttoer.jpeg')
 st.set_page_config(
@@ -22,5 +24,5 @@ with col1:
 with col2:
    st.image(image, caption=None, width=240, use_column_width=True, clamp=True, channels="RGB", output_format="auto")
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+# openai.api_key = st.secrets["OPENAI_API_KEY"]
 
