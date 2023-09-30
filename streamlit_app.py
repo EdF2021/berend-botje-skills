@@ -8,9 +8,7 @@ import openai
 from PIL import Image
 
 openai.api_key_path = "/.env"
-openai_api_key = os.getenv("OPENAI_API_KEY")
-
-st.secrets["OPENAI_API_KEY"] = openai_api_key 
+openai_api_key = os.getenv("OPENAI_API_KEY") 
 image = Image.open('producttoer.jpeg')
 st.set_page_config(
         page_title="Berend-Botje Skills",
@@ -58,8 +56,4 @@ if prompt := st.chat_input("Hoe gaat het?"):
         message_placeholder.markdown(full_response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
 
-
-
-if not openai.api_key:
-        openai.api_key = st.secrets["OPENAI_API_KEY"]
 
