@@ -6,7 +6,7 @@ import streamlit as st
 import openai
 from PIL import Image
 
-image = Image.open('/images/producttoer.jpeg')
+image = Image.open('main/images/producttoer.jpeg')
 st.set_page_config(
         page_title="Berend-Botje Skills",
         page_icon="👋",
