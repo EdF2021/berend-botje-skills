@@ -8,6 +8,8 @@
     "codespaces": {
       "openFiles": [
         "README.md",
+	"producttoer.jpg",
+	"requirements.txt",
         "streamlit_app.py"
       ]
     },
