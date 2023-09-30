@@ -7,7 +7,7 @@ import streamlit as st
 import openai
 from PIL import Image
 
-openai.api_key_path = "/.env"
+openai.api_key_path = ".env"
 openai_api_key = os.getenv("OPENAI_API_KEY") 
 image = Image.open('producttoer.jpeg')
 st.set_page_config(
