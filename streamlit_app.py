@@ -9,7 +9,12 @@ from PIL import Image
 
 openai.api_key_path = "/.env"
 openai_api_key = os.getenv("OPENAI_API_KEY")
+str.write("CHECKEN")
 
+st.write(openai_api_key)
+
+print(openai_api_key)
+st.secrets["OPENAI_API_KEY"] = openai_api_key 
 image = Image.open('producttoer.jpeg')
 st.set_page_config(
         page_title="Berend-Botje Skills",
