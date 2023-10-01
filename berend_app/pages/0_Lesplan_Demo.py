@@ -52,7 +52,7 @@ st.markdown("""##### De Lesplanner ondersteunt docenten bij het maken van een le
 
 
 # Enable caching for expensive functions
-bootstrap_caching()
+# bootstrap_caching()
 
 # sidebar()
 
