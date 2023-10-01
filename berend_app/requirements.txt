@@ -17,6 +17,8 @@ faiss-cpu
 filelock
 frozenlist
 fsspec
+fitz
+doctotext
 gitdb
 gitpython
 greenlet
