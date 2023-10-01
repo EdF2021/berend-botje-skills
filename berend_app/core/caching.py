@@ -1,10 +1,10 @@
 import streamlit as st
 from streamlit.runtime.caching.hashing import HashFuncsDict
 
-import core.parsing as parsing
-import core.chunking as chunking
-import core.embedding as embedding
-from core.parsing import File
+import parsing
+import chunking
+import embedding
+from parsing import File
 
 
 def file_hash_func(file: File) -> str:
