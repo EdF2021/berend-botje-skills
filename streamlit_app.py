@@ -1,4 +1,3 @@
-import os
 from collections import namedtuple
 import altair as alt
 import math
@@ -7,7 +6,7 @@ import streamlit as st
 import openai
 from PIL import Image
 
-openai_api_key = st.secret("OPENAI_API_KEY") 
+openai_api_key = st.secrets("OPENAI_API_KEY") 
 image = Image.open('producttoer.jpeg')
 st.set_page_config(
         page_title="Berend-Botje Skills",
