@@ -12,7 +12,6 @@ cohere
 colorama
 dataclasses-json
 decorator
-docx2txt
 faiss-cpu
 filelock
 frozenlist
