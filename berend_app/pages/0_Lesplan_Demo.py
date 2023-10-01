@@ -1,7 +1,5 @@
-import os 
 import streamlit as st
 from PIL import Image
-
 from streamlit import sidebar
 from core import ui
 from ui import (
@@ -42,7 +40,7 @@ with col1:
     st.header("📖Berend-Botje Skills" )
     st.subheader("De Lesplanner\n*waarom zou je moeilijk doen ....?*")
 with col2:
-   st.image(image, caption=None, width=240, use_column_width=None, clamp=True, channels="RGB", output_format="png")
+   st.image(image, caption=None, width=240, use_column_width=True, clamp=True, channels="RGB", output_format="png")
 
 
 
