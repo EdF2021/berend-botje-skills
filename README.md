@@ -1,7 +1,8 @@
 # Berend-Botje Skills
-> **Ed. de Feber**
-> **27-09-2023**
->> E-Mail: [Ed. de Feber](mailto:ed.de.feber@outlook.com) 
+> **Onderhoud: Ed. de Feber**
+> **Laatse wijziging 27-09-2023**
+
+>> E-Mail: [Ed. de Feber](mailto:ed.de.feber@outlook.com)\n
 >> Kloon ChatGPT: [Berend-Botje](https://berend-botje-skills.streamlit.app/)
 >> Skills: [Berend-Botje-Skills](https://berend-botje.streamlit.app/)
 
