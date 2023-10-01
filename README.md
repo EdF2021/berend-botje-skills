@@ -2,18 +2,8 @@
 >**Ed. de Feber**
 >**27-09-2023**
 >>E-Mail: [Ed. de Feber](mailto:ed.de.feber@outlook.com) 
->>Kloon ChatGPT: [Berend-Botje](https://berend-botje-skills.streamlit.app/)
->>Skills: [Berend-Botje-Skills](https://berend-botje.streamlit.app/)
+>> Kloon ChatGPT: [Berend-Botje](https://berend-botje-skills.streamlit.app/)
+>> Skills: [Berend-Botje-Skills](https://berend-botje.streamlit.app/)
 
+### Wat is Berend-Botje Skills?
 Berend-Botje Skills is een verzameling van Smart, op AI gebaseerde Apps, die tot doel hebben werkzaamheden van gebruikers makkelijker te maken. De apps zijn op gebaseerd op State of the Art AI modellen, waaronder die van OpenAi zoals VhatGPT, en inzichten uit de data ondersteuning.
-
-Accurate answers and instant citations for your documents.
-
-## 🔧 Features
-
-- Upload documents 📁(PDF, DOCX, TXT) and answer questions about them.
-- Cite sources📚 for the answers, with excerpts from the text.
-
-3. Run the Streamlit server🚀
-
-## 🚀 Upcoming Features
