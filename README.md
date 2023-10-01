@@ -2,7 +2,7 @@
 > **Onderhoud: Ed. de Feber**
 > **Laatse wijziging 27-09-2023**
 
->> E-Mail: [Ed. de Feber](mailto:ed.de.feber@outlook.com)\n
+>> E-Mail: [Ed. de Feber](mailto:ed.de.feber@outlook.com)
 >> Kloon ChatGPT: [Berend-Botje](https://berend-botje-skills.streamlit.app/)
 >> Skills: [Berend-Botje-Skills](https://berend-botje.streamlit.app/)
 
