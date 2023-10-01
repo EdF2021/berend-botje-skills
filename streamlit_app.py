@@ -17,10 +17,10 @@ st.set_page_config(
 col1, col2 = st.columns(2)
 
 with col1:
-    st.header("📖Berend-Botje Skills" )
-    st.subheader("De ChatGPT kloon\n*waarom zou je moeilijk doen ....?*")
+    st.header("👋 Berend-Botje Skills" )
+    st.subheader("Berend-Botje's ChatGPT kloon\n*waarom zou je moeilijk doen ....?*")
 with col2:
-   st.image(image, caption=None, width=240, use_column_width=True, clamp=True, channels="RGB", output_format="auto")
+   st.image(image, caption=None, use_column_width=True, clamp=True, channels="RGB", output_format="auto")
 
 # NIEUW
 if "openai_model" not in st.session_state:
