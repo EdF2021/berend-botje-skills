@@ -1,39 +1,54 @@
 jls_extract_var = """
+Berend-Botje.py - Dit bestand bevat de code voor Berend Botje, een chatbot die is ontwikkeld om te communiceren met gebruikers en hun vragen te beantwoorden.
+
+Copyright (c) Streamlit Inc. (2018-2022) Snowflake Inc. (2022)
+
+Dit bestand is gelicentieerd onder de Apache License, Version 2.0 (de "License"). Zie de LICENSE file in de repository voor meer informatie over de licentie.
+
+Auteur: [EdF]
+Datum: [datum van vandaag]
+"""
+
 import os
 import streamlit as st
 from PIL import Image
 
-import openai
-openai_api_key = st.secrets["OPENAI_API_KEY"]
+openai_api_key = os.getenv("OPENAI_API_KEY", None)
+if openai_api_key is None:
+    openai_api_key = st.secrets["OPENAI_API_KEY"]
 
-image = Image.open('images/producttoer.jpeg')
 
-from streamlit.logger import get_logger
-# import tiktoken
-# import tiktoken_ext
-image = Image.open('images/producttoer.jpeg')
-
+image = Image.open("images/producttoer.jpeg")
 
 from streamlit.logger import get_logger
+
+LOGGER = get_logger(__name__)
+
 # import tiktoken
 # import tiktoken_ext
 image = Image.open("images/producttoer.jpeg")
 
 
-
-ENCODINGS = 'cl100k_base'
+ENCODINGS = "cl100k_base"
 
 def run():
     st.set_page_config(
         page_title="Berend-Botje Skills",
         page_icon="👋",
         layout="wide",
-        initial_sidebar_state="collapsed"
-        
-        )
+        initial_sidebar_state="collapsed",
+    )
     st.write("### Welkom bij Berend-Botje Skills 👋")
-    st.image(image, caption=None, width=240, use_column_width=None, clamp=True, channels="RGB", output_format="png")
-    
+    st.image(
+        image,
+        caption=None,
+        width=240,
+        use_column_width=None,
+        clamp=True,
+        channels="RGB",
+        output_format="png",
+    )
+
     st.sidebar.success("Kies één van Berend's skills")
 
     st.markdown(

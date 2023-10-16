@@ -30,29 +30,28 @@ image = Image.open('images/producttoer.jpeg')
 # MODEL_LIST.insert(0, "debug")
 
 st.set_page_config(
-        page_title=":genie:Berend-Botje Skills", 
+        page_title="Berend-Botje Skills", 
         page_icon="👋",
         layout="wide",
-        initial_sidebar_state="auto" )
+        initial_sidebar_state="expanded" )
 
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.header(":genie: :infinity: Berend-Botje :genie: " )
-    st.subheader("De Lesplanner :male-student: \n*waarom zou je moeilijk doen ....?")
-    
+    st.header("Berend-Botje Skills" )
+    st.subheader("De Lesplanner\n*waarom zou je moeilijk doen ....?*")
 with col2:
-   st.image(image, caption=None, use_column_width=True, clamp=True, channels="RGB", output_format="auto")
+   st.image(image, caption=None, use_column_width=True, clamp=True, channels="RGB", output_format="png")
 
-st.markdown("**De Lesplanner :male-student:  helpt bij het plannen van een les. Geef Berend het onderwerp en doel van de les en hij maakt een lesplan.  Wil je ook content gebruiken? Voeg dan een document toe door het te slepen in onderstaand vak,  en Berend  neemt mee in het lesplan.**")
-   
+
 with st.sidebar:
+    st.markdown("""#### De Lesplanner ondersteunt docenten bij het maken van een lesplan.""")
     st.markdown("""
-    #### Hoe werkt de :male-student: Lesplanner?  
-    1. **:notebook: Upload een pdf, docx, of txt file📄**
-    2. **:writing_hand: Vraag Berend om een lesplan te maken en geef daarbij duidelijk aan wat het *Onderwerp*,  en *Lesdoel* is. Zodat Berend weet wat de studenten na de les moeten weten/kunnen.** 
-    3. **:golf: Klik dan op versturen, en Berend gaat aan de slag**
+    #### Hoe werkt de Lesplanner? 
+    1. **Upload een pdf, docx, of txt file📄**
+    2. **Stel je vraag over het document 💬**
+    3. **Laat Berend je lesplan maken**
     """ )
 
 
@@ -75,7 +74,7 @@ if not openai_api_key:
 
 
 uploaded_file = st.file_uploader(
-    "**:notebook: :red[UPLOAD HIER EEN PDF, DOCX, OF TXT BESTAND!]**",
+    "**HIER KUN JE JOUW PDF, DOCX, OF TXT BESTAND UPLOADEN!!**",
     type=["pdf", "docx", "txt"],
     help="Gescande documenten worden nog niet ondersteund! ",
 )
@@ -115,16 +114,28 @@ with st.spinner("Indexeren van het document... Dit kan even duren⏳"):
             openai_api_key=openai_api_key,
         )
 
+
+if uploaded_file:
+    llm = get_llm(model=model, openai_api_key=openai_api_key, temperature=0)
+    result = query_folder(
+        folder_index=folder_index,
+        query="Maak een samenvatting van het document dat net is ingelezen met de hoofd thema's en belangrijkste onderwerpen. Gebruik hier maximaal 3 regels voor. Geef altijd antwoord in HET NEDERLANDS!!",
+        return_all=return_all_chunks,
+        llm=llm,)
+    st.markdown("#### Samenvatting beschikbaar materiaal lesplan")
+    st.markdown(result.answer)
+
+
 with st.form(key="qa_form"):
-    query = st.text_area("Stel hier je vraag.")
-    query += "Antwoord in het Nederlands en maak het lesplan in Markdown Formaat."
-    submit = st.form_submit_button("Versturen")
+    query = st.text_area("**Ik wil een lesplan over het {{Onderwerp}}. De bedoeling is dat de studenten na de les {{Lesdoel}}.**")
+    query += "Antwoord in het Nederlands"
+    submit = st.form_submit_button("Stel je vraag")
     
 
-if show_full_doc:
-    with st.expander("Document"):
+# if show_full_doc:
+    # with st.expander("Document"):
         # Hack to get around st.markdown rendering LaTeX
-        st.markdown(f"<p>{wrap_doc_in_html(file.docs)}</p>", unsafe_allow_html=True)
+        # st.markdown(f"<p>{wrap_doc_in_html(file.docs)}</p>", unsafe_allow_html=True)
 
 
 if submit:
@@ -133,6 +144,7 @@ if submit:
             st.stop()
 
         # Output Columns
+
         llm = get_llm(model=model, openai_api_key=openai_api_key, temperature=0)
         result = query_folder(
             folder_index=folder_index,
@@ -140,15 +152,15 @@ if submit:
             return_all=return_all_chunks,
             llm=llm,
         )
+        # answer_col, sources_col = st.columns(2)
         
-        answer_col, sources_col = st.columns(2)
-        with answer_col:
-            st.markdown("#### Het Lesplan")
-            st.markdown(">['Berend-Botje Skills']('https://berend-botje.online')")
-            st.markdown(result.answer)
-        with sources_col:
-            st.markdown("#### Bronnen")
-            for source in result.sources:
-                st.markdown(source.page_content)
-                st.markdown(source.metadata["source"])
-                st.markdown("---")
+        # with answer_col:
+        st.markdown("#### Het Lesplan\n['Berend-Botje Skills']('https://berend-botje.online')")
+        st.markdown(result.answer)
+    
+        # with sources_col:
+            # st.markdown("#### Bronnen")
+            # for source in result.sources:
+                # st.markdown(source.page_content)
+                # st.markdown(source.metadata["source"])
+                # st.markdown("---")
